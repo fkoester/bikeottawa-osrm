@@ -1,0 +1,35 @@
+version: '3.1'
+
+services:
+  lts1-osrm:
+    image: ghcr.io/project-osrm/osrm-backend
+    volumes:
+      - ../backend.bikeottawa.ca/output:/data/:ro,z
+    command: osrm-routed /data/lts1/data.osrm
+    networks:
+      - mapsbikeottawaca-frontend_default
+  lts2-osrm:
+    image: ghcr.io/project-osrm/osrm-backend
+    volumes:
+      - ../backend.bikeottawa.ca/output:/data/:ro,z
+    command: osrm-routed /data/lts2/data.osrm
+    networks:
+      - mapsbikeottawaca-frontend_default
+  lts3-osrm:
+    image: ghcr.io/project-osrm/osrm-backend
+    volumes:
+      - ../backend.bikeottawa.ca/output:/data/:ro,z
+    command: osrm-routed /data/lts3/data.osrm
+    networks:
+      - mapsbikeottawaca-frontend_default
+  lts4-osrm:
+    image: ghcr.io/project-osrm/osrm-backend
+    volumes:
+      - ../backend.bikeottawa.ca/output:/data/:ro,z
+    command: osrm-routed /data/lts4/data.osrm
+    networks:
+      - mapsbikeottawaca-frontend_default
+
+networks:
+  mapsbikeottawaca-frontend_default:
+    external: true
